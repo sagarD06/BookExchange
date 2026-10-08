@@ -1,0 +1,12 @@
+from fastapi import Header, HTTPException
+
+# will move this to .env file later
+
+API_KEY = "MySecretAPIKey"
+
+
+def verify_api_key(x_api_key: str = Header()):
+    """Verify the API key provided in the request header."""
+    if x_api_key != API_KEY:
+        raise HTTPException(status_code=401, detail="Invalid API Key")
+    return x_api_key
