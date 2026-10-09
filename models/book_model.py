@@ -28,6 +28,10 @@ class BookRead(SQLModel):
     is_sold: bool
     user_id: int
 
+class BookUpdate(SQLModel):
+    title: str | None = None
+    author: str | None = None
+    price: float | None = None
 
 from models.user_model import User
 
